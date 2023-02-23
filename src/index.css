@@ -7,6 +7,9 @@
     @apply bg-slate-900;
     @apply min-h-screen;
   }
+  main {
+    @apply px-10 md:px-20 lg:px-40;
+  }
 }
 
 body {

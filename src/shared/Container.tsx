@@ -5,7 +5,9 @@ const Container = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }
