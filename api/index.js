@@ -1,6 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const express = require('express')
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const bodyParser = require('body-parser')
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const cors = require('cors')
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const app = express()
