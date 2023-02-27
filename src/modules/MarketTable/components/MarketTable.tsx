@@ -9,19 +9,20 @@ import { flowResult, toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import ModalTicket from './ModalTicket'
 import { marketTableHeader } from '../config'
+import useToastError from '../../../hooks/useToastError';
 
 const MarketTable = observer(() => {
   const [ticket, setTicket] = useState<MarketTicket | null>(null)
-
+  const {notify, RenderToastError} = useToastError()
   const store = useStore()
   const tickets = useStore((state) => state.tickets.items)
+
   const onSelectTicket = (ticket: MarketTicket) => {
     setTicket(toJS(ticket))
   }
 
   useEffect(() => {
     const result = flowResult(store.tickets.fetchTickets())
-
     return () => {
       result.cancel()
     }
@@ -43,11 +44,12 @@ const MarketTable = observer(() => {
   const renderList = () => {
     const status = store.tickets.status
     if (status === 'init' || status === 'loading') {
-      return 'Loading...'
+      return <h5 className={'text-gray-300'}>Loading...</h5>
     }
 
     if (status === 'error') {
-      return 'Error happened'
+      notify()
+    return  <RenderToastError/>
     }
 
     return (

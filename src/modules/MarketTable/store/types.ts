@@ -1,4 +1,5 @@
-export type FlowReturn<AsyncFunction extends (...args: never[]) => Promise<never>> = Generator<
+// eslint-disable-next-line
+export type FlowReturn<AsyncFunction extends (...args: any[]) => Promise<any>> = Generator<
   ReturnType<AsyncFunction>,
   void,
   Awaited<ReturnType<AsyncFunction>>
