@@ -1,9 +1,12 @@
-import { FC, ReactNode } from 'react'
+import { memo, ReactNode } from 'react'
 
-export const TableRow: FC<{ children: ReactNode; onClick: () => void }> = ({
+export const TableRow = memo(function TableRow({
   children,
   onClick,
-}) => {
+}: {
+  children: ReactNode
+  onClick: () => void
+}) {
   return (
     <tr
       className={[
@@ -17,4 +20,4 @@ export const TableRow: FC<{ children: ReactNode; onClick: () => void }> = ({
       {children}
     </tr>
   )
-}
+})

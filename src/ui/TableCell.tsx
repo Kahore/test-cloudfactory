@@ -1,9 +1,8 @@
-import { FC, HTMLAttributes, ReactNode } from 'react'
-
-export const TableCell: FC<{ children: ReactNode } & HTMLAttributes<HTMLTableDataCellElement>> = ({
+import { HTMLAttributes, memo, ReactNode } from 'react'
+export const TableCell = memo(function TableCell({
   children,
   className,
-}) => {
+}: { children: ReactNode } & HTMLAttributes<HTMLTableDataCellElement>) {
   return (
     <td
       className={
@@ -13,4 +12,4 @@ export const TableCell: FC<{ children: ReactNode } & HTMLAttributes<HTMLTableDat
       {children}
     </td>
   )
-}
+})
