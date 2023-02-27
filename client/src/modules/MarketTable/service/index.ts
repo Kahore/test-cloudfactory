@@ -16,11 +16,7 @@ export interface MarketTicketData {
 }
 class MarketTableService {
   public static async getTickets(): Promise<MarketTicket[]> {
-    return await fetch(`${process.env.REACT_APP_API}/public?command=returnTicker`,{
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
+    return await fetch(`${process.env.REACT_APP_API}/public?command=returnTicker`)
       .then((response) => response.json())
       .then((response) => {
         return [response]
