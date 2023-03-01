@@ -1,14 +1,20 @@
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { Error } from './pages/Error'
 import Container from './shared/Container'
 import { About } from './pages/About'
-import { Markets } from './pages/Markets'
+const Error = lazy(() => import(/* webpackChunkName: "Error"*/ './pages/Error'))
+const Markets = lazy(() => import(/* webpackChunkName: "Markets"*/ './pages/Markets'))
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Container />,
-    errorElement: <Error />,
+    errorElement: (
+      <Suspense fallback={<></>}>
+        {' '}
+        <Error />
+      </Suspense>
+    ),
 
     children: [
       {
@@ -21,7 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/markets',
-        element: <Markets />,
+        element: (
+          <Suspense fallback={<>Loading...</>}>
+            <Markets />
+          </Suspense>
+        ),
       },
     ],
   },

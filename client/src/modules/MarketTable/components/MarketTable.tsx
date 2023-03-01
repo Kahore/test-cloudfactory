@@ -9,11 +9,11 @@ import { flowResult, toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import ModalTicket from './ModalTicket'
 import { marketTableHeader } from '../config'
-import useToastError from '../../../hooks/useToastError';
+import useToastError from '../../../hooks/useToastError'
 
 const MarketTable = observer(() => {
   const [ticket, setTicket] = useState<MarketTicket | null>(null)
-  const {notify, RenderToastError} = useToastError()
+  const { notify, RenderToastError } = useToastError()
   const store = useStore()
   const tickets = useStore((state) => state.tickets.items)
 
@@ -49,7 +49,7 @@ const MarketTable = observer(() => {
 
     if (status === 'error') {
       notify()
-    return  <RenderToastError/>
+      return <RenderToastError />
     }
 
     return (

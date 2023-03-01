@@ -1,6 +1,6 @@
 {
   "name": "test-cloudfactory",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "proxy": "http://localhost:4000",
   "homepage": "http://localhost:3000",
